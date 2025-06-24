@@ -60,15 +60,15 @@ const GeneralState = () => {
         <StateElement className="state__element">
           <StateGroup className="state__group">
             <h2 className="state__subject">Número total de guías activas</h2>
-            <p className="state__info totalGuidesActive">{guideActive}</p>
+            <p data-testid="totalGuidesActive" className="state__info totalGuidesActive">{guideActive}</p>
           </StateGroup>
           <StateGroup className="state__group">
             <h2 className="state__subject">Guías en tránsito</h2>
-            <p className="state__info onTransitGuides">{guideTransit}</p>
+            <p data-testid="onTransitGuides" className="state__info onTransitGuides">{guideTransit}</p>
           </StateGroup>
           <StateGroup className="state__group">
             <h2 className="state__subject">Guías entregadas</h2>
-            <p className="state__info deliveredGuides">{guideDelivered}</p>
+            <p data-testid="deliveredGuides" className="state__info deliveredGuides">{guideDelivered}</p>
           </StateGroup>
         </StateElement>
       </StateContainer>

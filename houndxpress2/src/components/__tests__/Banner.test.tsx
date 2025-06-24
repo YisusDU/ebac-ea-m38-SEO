@@ -4,10 +4,6 @@ import Banner from "../Banner/index";
 import { ThemeProvider } from "styled-components";
 import Theme from "../../theme/index";
 
-//We mock the imgs to avoid errors
-jest.mock("../../assets/IMG/bannerCanva-HX.png", () => "bannerCanva-HX.png");
-jest.mock("../../assets/IMG/bannerUS__HX.png", () => "bannerUS__HX.png");
-
 //mocks
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -30,6 +26,12 @@ describe("Banner component", () => {
   });
 
   it("renders the images of the carrusel", () => {
+    //We mock the imgs to avoid errors
+    jest.mock(
+      "../../assets/IMG/bannerCanva-HX.png",
+      () => "bannerCanva-HX.png"
+    );
+    jest.mock("../../assets/IMG/bannerUS__HX.png", () => "bannerUS__HX.png");
     expect(screen.getByAltText("bannerCanva-HX")).toBeInTheDocument();
     expect(screen.getByAltText("Banner-HX-logistics")).toBeInTheDocument();
   });
