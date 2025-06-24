@@ -8,8 +8,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import guidesReducer from "../../state/guides.slice";
 import { GuidesState } from "../../state/types";
 
-//Mocks
-
 describe("GeneralState", () => {
   // Create a Redux store with the guides reducer and preloaded state
   const defaultState: GuidesState = {

@@ -39,7 +39,7 @@ const GuideList = () => {
     /* <!--Lista de guías--> */
     <GuideListContainer className="guide__list" id="guide__list">
       <h2 className="list__title">Lista de guías</h2>
-      <GuideFilter action="#" onSubmit={(e) => e.preventDefault()}>
+      <GuideFilter role="form" action="#" onSubmit={(e) => e.preventDefault()}>
         <label htmlFor="filterState">Filtrar por estado de envío:</label>
         <select
           name="filterState"
@@ -71,7 +71,7 @@ const GuideList = () => {
               <th className="guide__table--header">Opciones</th>
             </tr>
           </TableHeader>
-          <tbody className="table__body">
+          <tbody data-testid="table-body" className="table__body">
             {filteredGuides.map((g) => (
               <tr className="guide__table--row" key={g.guide__number}>
                 <TableData className="guide__table--data">
