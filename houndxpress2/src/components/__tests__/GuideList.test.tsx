@@ -33,6 +33,11 @@ describe("GuidesList", () => {
     return store;
   };
 
+  //Clear all mock after each test
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render the GuideList component", () => {
     renderWithStore();
     const guideList = screen.getByText("Lista de guías");
