@@ -14,12 +14,13 @@ const HistoryPath = () => {
     (state) => state.guides.modalData.guideNumber
   );
   const currentGuide = guides.find((g) => g.guide__number === guideNumber);
+  const stages = currentGuide?.guide__stage ?? [];
   return (
     <section>
       {/* Dinamics paths of following  */}
-      {currentGuide && currentGuide.guide__stage?.length >= 1 ? (
+      {stages && stages.length >= 1 ? (
         <>
-          {currentGuide?.guide__stage.map((stage, idx) => (
+          {stages.map((stage, idx) => (
             <ModalHistoryPath key={idx}>
               <ModalSVGContainer>
                 <img src={Paw} alt="paw-icon" />
