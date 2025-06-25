@@ -7,7 +7,6 @@ import Theme from "../../theme";
 import { configureStore } from "@reduxjs/toolkit";
 import guidesReducer from "../../state/guides.slice";
 import { GuidesState } from "../../state/types";
-import store from "../../App/store";
 
 describe("GuideRegister component", () => {
   const defaultState: GuidesState = {
@@ -94,13 +93,39 @@ describe("GuideRegister component", () => {
     const submitButton = screen.getByText(/enviar/i);
     fireEvent.click(submitButton);
 
-    const guideInputs = screen.getAllByPlaceholderText("Número de guía:");
+    // Check if error messages are displayed
     const errorMessage = screen.getAllByText(/Este campo es obligatorio/i);
+    expect(errorMessage.length).toBeGreaterThan(0);
+    expect(errorMessage.length).toBe(7);
 
-    for (let i = 0; i < guideInputs.length; i++) {
-      fireEvent.focus(guideInputs[i]);
-      expect(errorMessage[i]).toHaveTextContent("");
-    }
+    // Check if inputs are present
+    const placeHolderTexts = [
+      "Número de guía:",
+      "Origen:",
+      "Destino:",
+      "Destinatario:",
+      "Fecha de creación:",
+      "Hora de creación:",
+    ];
+
+    placeHolderTexts.forEach((placeHolder)=> {
+      const input = screen.getByPlaceholderText(placeHolder);
+      expect(input).toBeInTheDocument();
+
+      const index = placeHolderTexts.indexOf(placeHolder);
+      expect(errorMessage[index]).toBeInTheDocument();
+      
+      fireEvent.focus(input);
+      expect(errorMessage[index]).toHaveTextContent("");
+    })
+
+    //test for guide status select
+    const guideStatusSelect = screen.getByRole("combobox");
+    expect(guideStatusSelect).toBeInTheDocument();
+    const errorMessageStatus = screen.getByText(/Este campo es obligatorio/i);
+    expect(errorMessageStatus).toBeInTheDocument();
+    fireEvent.focus(guideStatusSelect);
+    expect(errorMessageStatus).toHaveTextContent("");
   });
 
   it("should shows an error of guide number repeated", () => {
