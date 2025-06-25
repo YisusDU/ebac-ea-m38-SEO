@@ -21,6 +21,7 @@ const Header = forwardRef<HTMLElement>(({}, ref) => {
 
   return (
     <HeaderContainer
+      role="header"
       ref={ref}
       className={`header ${menuDisplay ? "fixed" : ""}`}
       id="start"
