@@ -1,11 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, prettyDOM } from "@testing-library/react";
 import GuideRegister from "../GuideReguister";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import Theme from "../../theme";
 import { configureStore } from "@reduxjs/toolkit";
-import guidesReducer from "../../state/guides.slice";
+import guidesReducer, { addGuide } from "../../state/guides.slice";
 import { GuidesState } from "../../state/types";
 
 describe("GuideRegister component", () => {
@@ -110,16 +110,16 @@ describe("GuideRegister component", () => {
       "Hora de creación:",
     ];
 
-    placeHolderTexts.forEach((placeHolder)=> {
+    placeHolderTexts.forEach((placeHolder) => {
       const input = screen.getByPlaceholderText(placeHolder);
       expect(input).toBeInTheDocument();
 
       const index = placeHolderTexts.indexOf(placeHolder);
       expect(errorMessage[index]).toBeInTheDocument();
-      
+
       fireEvent.focus(input);
       expect(errorMessage[index]).toHaveTextContent("");
-    })
+    });
 
     //test for guide status select
     const guideStatusSelect = screen.getByRole("combobox");
@@ -151,5 +151,101 @@ describe("GuideRegister component", () => {
     const errorMessage = screen.getByText(/El número de guía ya existe/i);
 
     expect(errorMessage).toBeInTheDocument();
+  });
+
+  it("should add a new guide to the guides array when the form is submitted", () => {
+    const mockGuide = [
+      {
+        guide__number: "123456",
+        guide__origin: "Ciudad A",
+        guide__destination: "Ciudad B",
+        guide__recipient: "Juan Perez",
+        guide__stage: [
+          {
+            guide__status: "Pendiente",
+            guide__date: "2024-06-24",
+            guide__hour: "10:00",
+          },
+        ],
+      },
+    ];
+    //Render a new store with the mock data
+    const defaultState: GuidesState = {
+      guides: mockGuide,
+      menuDisplay: false,
+      modalData: { guideNumber: "", typeModal: "" },
+    };
+    const store = configureStore({
+      reducer: { guides: guidesReducer },
+      preloadedState: {
+        guides: defaultState,
+      },
+    });
+    const dispatchSpy = jest.spyOn(store, "dispatch");
+    jest.spyOn(window, "alert").mockImplementation(() => {});
+    render(
+      <Provider store={store}>
+        <ThemeProvider theme={Theme}>
+          <GuideRegister />
+        </ThemeProvider>
+      </Provider>
+    );
+
+    // Fill the form with valid data
+    const inputsPlaceHolders = [
+      "Número de guía:",
+      "Origen:",
+      "Destino:",
+      "Destinatario:",
+      "Fecha de creación:",
+      "Hora de creación:",
+    ];
+
+    const inputsValues = [
+      "1234567",
+      "Ciudad A",
+      "Ciudad B",
+      "Juan Perez",
+      "2024-06-24",
+      "10:00",
+    ];
+
+    for (let i = 0; i < inputsPlaceHolders.length; i++) {
+      const input = screen.getByPlaceholderText(inputsPlaceHolders[i]);
+      fireEvent.change(input, { target: { value: inputsValues[i] } });
+    }
+
+    // Select the guide status
+    const guideStatusSelect = screen.getByRole("combobox");
+    fireEvent.change(guideStatusSelect, {
+      target: { value: "Pendiente" },
+    });
+
+    // Submit the form
+    const submitButton = screen.getByText(/Enviar/i, {
+      selector: "button",
+    });
+    const form = submitButton.closest("form");
+    fireEvent.submit(form!);
+
+    console.log(prettyDOM(form!));
+
+    // Check if the dispatch was called with the correct action
+    expect(dispatchSpy).toHaveBeenCalled();
+    expect(dispatchSpy).toHaveBeenCalledWith(
+      addGuide({
+        guide__number: "1234567",
+        guide__origin: "Ciudad A",
+        guide__destination: "Ciudad B",
+        guide__recipient: "Juan Perez",
+        guide__stage: [
+          {
+            guide__status: "Pendiente",
+            guide__date: "2024-06-24",
+            guide__hour: "10:00",
+          },
+        ],
+      })
+    );
   });
 });
