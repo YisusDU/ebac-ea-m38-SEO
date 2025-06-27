@@ -10,7 +10,7 @@ const useDraggTable = () => {
     let scrollLeft = 0;
 
     const handleMouseDown = (event: MouseEvent) => {
-      event.preventDefault(); // Evita seleccionar texto
+      event.preventDefault(); // prevent select the text inside
       isDown = true;
       if (table) {
         startX = event.pageX - table.offsetLeft;
@@ -42,10 +42,10 @@ const useDraggTable = () => {
     // Limpieza al desmontar el componente
     return () => {
       if (node) {
-        node.addEventListener("mousedown", handleMouseDown);
-        node.addEventListener("mouseup", handleMouseUp);
-        node.addEventListener("mouseleave", handleMouseUp);
-        node.addEventListener("mousemove", handleMouseMove);
+        node.removeEventListener("mousedown", handleMouseDown);
+        node.removeEventListener("mouseup", handleMouseUp);
+        node.removeEventListener("mouseleave", handleMouseUp);
+        node.removeEventListener("mousemove", handleMouseMove);
       }
     };
   }, []);

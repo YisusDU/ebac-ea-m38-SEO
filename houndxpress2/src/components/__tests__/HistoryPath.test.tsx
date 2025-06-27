@@ -91,7 +91,6 @@ describe("HistoryPath component", () => {
     renderWithStore({ guides: guides, modalData: guideData });
     const emptyStatusH3 = screen.getByText("", { selector: "h3" });
     expect(emptyStatusH3).toBeInTheDocument();
-    console.log(prettyDOM(emptyStatusH3));
   });
 
   it("should render the HistoryPath component with correct status styles", () => {
