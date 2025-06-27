@@ -98,7 +98,7 @@ describe("GuideRegister component", () => {
     expect(errorMessage.length).toBeGreaterThan(0);
     expect(errorMessage.length).toBe(7);
 
-    // Check if inputs are present
+    // Focus on each input to clear errors
     const placeHolderTexts = [
       "Número de guía:",
       "Origen:",

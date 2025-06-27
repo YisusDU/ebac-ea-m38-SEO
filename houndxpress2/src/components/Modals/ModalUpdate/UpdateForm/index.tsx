@@ -13,12 +13,6 @@ import {
 import { useCleanErrorOnFocus } from "../../../../hooks/useCleanErrorOnFocus";
 import { useAppSelector } from "../../../../hooks/useStoreTypes";
 
-interface TypesUpdateForm {
-  guideIndex: number;
-  currentGuide: Guide;
-  setGuides: React.Dispatch<SetStateAction<Guide[]>>;
-}
-
 const UpdateForm = () => {
   //Redux state
   const guides = useAppSelector((state) => state.guides.guides);
@@ -58,7 +52,7 @@ const UpdateForm = () => {
             className="tableModal__form--select tableModal__input"
             id="guide__newStatus"
             name="guide__status"
-            title="Selecciona el estado actuaizado del envío"
+            title="Selecciona el estado actualizado del envío"
             onFocus={clearErrosOnFocus}
           >
             <option className="tableModal__form--option option--1" value="">
