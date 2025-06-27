@@ -38,6 +38,7 @@ describe("GuidesList", () => {
     jest.clearAllMocks();
   });
 
+  //Renders
   it("should render the GuideList component", () => {
     renderWithStore();
     const guideList = screen.getByText("Lista de guías");
@@ -100,6 +101,7 @@ describe("GuidesList", () => {
     expect(tBody.children.length).toBe(mockGuides.length);
   });
 
+  // Functionality
   it("should filter guides by status", () => {
     const mockGuides = [
       {

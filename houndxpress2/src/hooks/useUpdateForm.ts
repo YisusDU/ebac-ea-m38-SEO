@@ -35,8 +35,8 @@ const useUpdateForm = () => {
     };
 
     //Update with Redux
-    alert("Guía registrada con éxito");
     dispatch(updateGuide(newGuideStage));
+    alert("Guía registrada con éxito");
     //clean the form
     form.reset();
   };

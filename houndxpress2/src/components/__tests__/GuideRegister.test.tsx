@@ -36,6 +36,7 @@ describe("GuideRegister component", () => {
     jest.clearAllMocks();
   });
 
+  //Renders
   it("should render the GuideRegister component", () => {
     renderWithStore();
     const guideRegister = screen.getByText("Registro de guías");
@@ -78,6 +79,7 @@ describe("GuideRegister component", () => {
     expect(pawsIMG.length).not.toBe(6);
   });
 
+  //Functionality
   it("should call handleValidate on form submission", () => {
     renderWithStore();
     const submitButton = screen.getByText(/enviar/i);
