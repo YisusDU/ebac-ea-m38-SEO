@@ -122,4 +122,5 @@ describe("Guides Slice", () => {
       expect(state.modalData).toEqual(newModalData);
     });
   });
+  
 });
