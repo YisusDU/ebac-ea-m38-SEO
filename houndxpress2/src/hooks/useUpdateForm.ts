@@ -23,7 +23,6 @@ const useUpdateForm = () => {
 
     // console.log("Formulario válido:", validForm ? "true" : "false");
     if (!isValid) {
-      e.preventDefault();
       return;
     }
 
