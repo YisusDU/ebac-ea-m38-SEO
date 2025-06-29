@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { act, useRef } from "react";
 import { render } from "@testing-library/react";
 import useFixedHeader from "../useFixedHeader";
 import * as storeHooks from "../useStoreTypes"; //import all to mock them
@@ -40,16 +40,20 @@ describe("useFixedHeader", () => {
 
   it("should dispatch true on toggleMenu on scroll", () => {
     const store = renderWithStore();
-    window.scrollY = 200;
-    window.dispatchEvent(new Event("scroll"));
+    act(() => {
+      window.scrollY = 200;
+      window.dispatchEvent(new Event("scroll"));
+    });
     const storeTest = store.getState();
     expect(storeTest.guides.menuDisplay).toBe(true);
   });
 
   it("should dispatch false on toggleMenu on scroll", () => {
     const store = renderWithStore({ menuDisplay: true });
-    window.scrollY = 100;
-    window.dispatchEvent(new Event("scroll"));
+    act(() => {
+      window.scrollY = 100;
+      window.dispatchEvent(new Event("scroll"));
+    });
     const storeTest = store.getState();
     expect(storeTest.guides.menuDisplay).toBe(false);
   });

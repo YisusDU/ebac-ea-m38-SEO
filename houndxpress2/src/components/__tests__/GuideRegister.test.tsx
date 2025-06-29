@@ -228,7 +228,6 @@ describe("GuideRegister component", () => {
     const form = submitButton.closest("form");
     fireEvent.submit(form!);
 
-    console.log(prettyDOM(form!));
 
     // Check if the dispatch was called with the correct action
     expect(dispatchSpy).toHaveBeenCalled();

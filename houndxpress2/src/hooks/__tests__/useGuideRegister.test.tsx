@@ -243,7 +243,7 @@ describe("useGuideRegister hook", () => {
       currentTarget: form,
     } as unknown as React.FormEvent<HTMLFormElement>;
 
-    // Simula que la validación pasa (mockea validateFields si es necesario)
+    // simulate that the forms pass the validation
     jest.spyOn(ValidateFields, "default").mockReturnValue({ isValid: true });
     act(() => {
       result.current.handleValidate(event);
