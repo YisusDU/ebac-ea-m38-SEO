@@ -47,8 +47,12 @@ describe("App component", () => {
 
   it("should render the banner", () => {
     renderWithStore();
-    expect(screen.getByAltText("bannerCanva-HX")).toBeInTheDocument();
-    expect(screen.getByAltText("Banner-HX-logistics")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Hound Express te acompaña, mensajería y envíos.")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Hound Express con cobertura en EU")
+    ).toBeInTheDocument();
   });
 
   it("should render GuideRegister", () => {

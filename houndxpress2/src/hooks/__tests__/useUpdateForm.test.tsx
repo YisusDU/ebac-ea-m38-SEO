@@ -1,7 +1,7 @@
 import React, { act, ReactNode } from "react";
 import { GuidesState } from "../../state/types";
-import { configureStore, current } from "@reduxjs/toolkit";
-import guidesReducer, { updateGuide } from "../../state/guides.slice";
+import { configureStore } from "@reduxjs/toolkit";
+import guidesReducer from "../../state/guides.slice";
 import { Provider } from "react-redux";
 import { renderHook } from "@testing-library/react";
 import { useUpdateForm } from "../useUpdateForm";

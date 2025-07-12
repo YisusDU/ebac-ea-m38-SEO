@@ -3,13 +3,12 @@ import { pawsDown } from "../../theme/animations";
 import { flex, box, colorBg, hover, active } from "../../theme/mixins";
 import { primaryColor, secondaryColor } from "../../theme/variables";
 
-
 //-- Forms
 
-const GuideRegisterContainer = styled.article`
+const GuideRegisterContainer = styled.section`
   ${flex("row", "center", "center")};
   ${box("60%", "0 auto", "1.25rem")};
-  ${colorBg("#fff", secondaryColor)}
+  ${colorBg(primaryColor, secondaryColor)}
   overflow: hidden;
   ${pawsDown()};
 
@@ -26,6 +25,7 @@ const GuideContainer = styled.section`
   padding: 1.25rem;
   h2 {
     font-size: 1.5rem;
+    text-align: center;
   }
 `;
 
@@ -36,10 +36,6 @@ const GuideForm = styled.form`
   box-sizing: border-box;
 
   .guide__form--label {
-    display: none;
-  }
-  label[For="guide__date"],
-  label[For="guide__hour"] {
     display: flex;
     font-size: 1.2rem;
     margin-top: 0.625rem;
@@ -108,7 +104,7 @@ const GuideAnimation = styled.section`
   position: relative;
   width: 40px;
   ${flex("column", "center", "center")};
-  top: -500px;
+  top: -700px;
   gap: 1.25rem;
 
   .guide__svg {

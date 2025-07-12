@@ -22,24 +22,48 @@ const Banner = () => {
     <BannerContainer className="banner">
       <CarouselContainer className="carousel">
         <CarouselImages className="carousel__images" $position={position}>
-          <article className="carousel__element">
+          <section className="carousel__element">
             <img
               className="banner__img"
               src={BannerCanva}
-              alt="bannerCanva-HX"
+              alt="Hound Express te acompaña, mensajería y envíos."
             />
-          </article>
-          <article className="carousel__element">
+          </section>
+          <section className="carousel__element">
             <img
               className="banner__img"
               src={BannerLogistics}
-              alt="Banner-HX-logistics"
+              alt="Hound Express con cobertura en EU"
             />
-          </article>
+          </section>
         </CarouselImages>
         <CarouselNav className="carousel__nav" $position={position}>
-          <div onClick={() => setPosition("left")}>⬅️</div>
-          <div onClick={() => setPosition("right")}>➡️</div>
+          <button
+            onClick={() => setPosition("left")}
+            tabIndex={0}
+            role="button"
+            aria-label={`${
+              position === "left" ? "Prohibido" : ""
+            } Desplazar carrusel a la izquierda`}
+            title={`${
+              position === "left" ? "Prohibido" : ""
+            } Desplazar carrusel a la izquierda`}
+          >
+            ⬅️
+          </button>
+          <button
+            onClick={() => setPosition("right")}
+            tabIndex={0}
+            role="button"
+            aria-label={`${
+              position === "right" ? "Prohibido" : ""
+            } Desplazar carrusel a la derecha`}
+            title={`${
+              position === "right" ? "Prohibido" : ""
+            } Desplazar carrusel a la derecha`}
+          >
+            ➡️
+          </button>
         </CarouselNav>
       </CarouselContainer>
     </BannerContainer>

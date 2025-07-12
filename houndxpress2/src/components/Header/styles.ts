@@ -1,7 +1,24 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { shine } from "../../theme/animations";
 import { flex, box, hover, active } from "../../theme/mixins";
-import { primaryColor, secondaryColor, sizesMedia } from "../../theme/variables";
+import {
+  primaryColor,
+  secondaryColor,
+  sizesMedia,
+} from "../../theme/variables";
+const buttonMenu = css`
+  width: 2rem;
+  margin-left: 1rem;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+
+  img {
+    width: 100%;
+  }
+`;
 
 const HeaderContainer = styled.header`
   ${flex("column", "start", "center")};
@@ -26,6 +43,7 @@ const HeaderContainer = styled.header`
 
   .header__top {
     ${shine()};
+    padding: 2px;
 
     .header__logo {
       width: 15rem;
@@ -72,31 +90,25 @@ const HeaderNav = styled.nav`
   }
 `;
 
-const HeaderIcons = styled.i`
+const HeaderIcons = styled.div`
   display: none;
   width: 2rem;
   color: #fff;
   transition: all 0.3s ease-in-out;
   height: 36.56px;
 
-  img {
-    ${hover("transparent")};
-    ${active()};
-    position: absolute;
-  }
-
   .header__menuButton--show {
-    width: 2rem;
-    margin-left: 1rem;
-    transition: all 0.3s ease-in-out;
+    ${buttonMenu}
   }
 
   .header__menuButton--hidde {
-    scale: 0;
-    width: 1.6rem;
-    margin-left: 1rem;
-    transition: all 0.3s ease-in-out;
-    transform: rotate(0deg);
+    ${buttonMenu}
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .header__menuButton--hidde:hover,
+    .header__menuButton--show:hover {
+      background-color: ${secondaryColor};
+    }
   }
 
   //Hidde class
@@ -106,11 +118,7 @@ const HeaderIcons = styled.i`
       justify-content: flex-end;
     }
 
-    img:nth-of-type(1) {
-      scale: 0;
-    }
-
-    img:nth-of-type(2) {
+    img {
       scale: 1;
       transform: rotate(360deg);
       transition: all 0.5s ease-in-out;
@@ -125,7 +133,7 @@ const HeaderIcons = styled.i`
   }
 `;
 
-const HeaderLinksContainer = styled.div`
+const HeaderLinksContainer = styled.ul`
   ${flex("row", "start", "space-between")};
   background-color: ${primaryColor};
   width: 100%;
@@ -160,6 +168,10 @@ const HeaderLinksContainer = styled.div`
       background-color: ${secondaryColor};
       ${hover(primaryColor)};
     }
+  }
+  li {
+    list-style: none;
+    width: 100%;
   }
 
   // Responsive styles

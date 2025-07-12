@@ -71,4 +71,5 @@ describe("ModalHistory", () => {
     expect(errorMessage).toBeTruthy();
     expect(errorMessage[0]).toBeInTheDocument();
   });
+  
 });

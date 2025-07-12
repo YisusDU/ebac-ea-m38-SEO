@@ -32,8 +32,12 @@ describe("Banner component", () => {
       () => "bannerCanva-HX.png"
     );
     jest.mock("../../assets/IMG/bannerUS__HX.png", () => "bannerUS__HX.png");
-    expect(screen.getByAltText("bannerCanva-HX")).toBeInTheDocument();
-    expect(screen.getByAltText("Banner-HX-logistics")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Hound Express te acompaña, mensajería y envíos.")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Hound Express con cobertura en EU")
+    ).toBeInTheDocument();
   });
 
   it("renders the buttons of the carrusel", () => {

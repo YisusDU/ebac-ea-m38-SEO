@@ -56,7 +56,9 @@ describe("GeneralState", () => {
       () => "Animacion-beneficios-sistema-v2.gif"
     );
     renderWithStore();
-    const gifImage = screen.getByAltText("hx__gift");
+    const gifImage = screen.getByAltText(
+      /Almacenamiento, envío y rastreo por Hound Expres/i
+    );
     expect(gifImage).toBeInTheDocument();
   });
 

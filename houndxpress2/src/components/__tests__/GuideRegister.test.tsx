@@ -47,11 +47,11 @@ describe("GuideRegister component", () => {
     renderWithStore();
     const labelTexts = [
       "Número de guía:",
-      "Origen:",
-      "Destino:",
+      "Origen del envío:",
+      "Destino del envío:",
       "Destinatario:",
-      "Fecha de creación:",
-      "Hora de creación:",
+      "Fecha de creación (DD/MM/AA):",
+      "Hora de creación (24 horas):",
     ];
     for (const labelText of labelTexts) {
       const label = screen.getByLabelText(labelText);
@@ -72,7 +72,7 @@ describe("GuideRegister component", () => {
 
   it("should render the animation on form hover", () => {
     renderWithStore();
-    const pawsIMG = screen.getAllByAltText("paw-svg");
+    const pawsIMG = screen.getAllByAltText(/Huella de perro/i);
 
     expect(pawsIMG.length).toBeGreaterThan(0);
     expect(pawsIMG.length).toBe(5);
@@ -103,11 +103,11 @@ describe("GuideRegister component", () => {
     // Focus on each input to clear errors
     const placeHolderTexts = [
       "Número de guía:",
-      "Origen:",
-      "Destino:",
+      "Origen del envío:",
+      "Destino del envío:",
       "Destinatario:",
-      "Fecha de creación:",
-      "Hora de creación:",
+      "Fecha de creación (DD/MM/AA):",
+      "Hora de creación (24 horas):",
     ];
 
     placeHolderTexts.forEach((placeHolder) => {
@@ -194,11 +194,11 @@ describe("GuideRegister component", () => {
     // Fill the form with valid data
     const inputsPlaceHolders = [
       "Número de guía:",
-      "Origen:",
-      "Destino:",
+      "Origen del envío:",
+      "Destino del envío:",
       "Destinatario:",
-      "Fecha de creación:",
-      "Hora de creación:",
+      "Fecha de creación (DD/MM/AA):",
+      "Hora de creación (24 horas):",
     ];
 
     const inputsValues = [
@@ -227,7 +227,6 @@ describe("GuideRegister component", () => {
     });
     const form = submitButton.closest("form");
     fireEvent.submit(form!);
-
 
     // Check if the dispatch was called with the correct action
     expect(dispatchSpy).toHaveBeenCalled();

@@ -3,8 +3,8 @@ import { flex, box, colorBg } from "../../theme/mixins";
 import { shine } from "../../theme/animations";
 import { sizesMedia, secondaryColor } from "../../theme/variables";
 
-const GeneralStateContainer = styled.article`
-  ${flex("rrow", "center", "space-between")};
+const GeneralStateContainer = styled.section`
+  ${flex("row", "center", "space-between")};
   ${box("100%", "0 auto", "1.25rem")};
   ${colorBg()};
 
@@ -27,7 +27,7 @@ const StateContainer = styled.section`
   }
 `;
 
-const StateElement = styled.article`
+const StateElement = styled.section`
   ${flex("row", "center", "space-between")};
   width: 100%;
   padding: 1.25rem;

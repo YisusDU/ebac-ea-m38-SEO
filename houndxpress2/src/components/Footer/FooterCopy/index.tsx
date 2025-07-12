@@ -7,10 +7,10 @@ const FooterCopy = () => {
       <p className="footer__text">
         Copyright © 2025 Hound Express. Todos los derechos reservados.
       </p>
-      <a href="#" className="footer__text--link">
+      <a href="#" className="footer__text--link" rel="noopener">
         Términos y condiciones
       </a>
-      <a href="#" className="footer__text--link">
+      <a href="#" className="footer__text--link" rel="noopener">
         Política de privacidad
       </a>
     </FooterCopyContainer>

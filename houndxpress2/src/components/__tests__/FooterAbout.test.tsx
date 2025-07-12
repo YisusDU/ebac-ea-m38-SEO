@@ -35,14 +35,14 @@ describe("FooterAbout component", () => {
   });
 
   it("should render the images and icons", () => {
-    expect(screen.getByAltText("imagotipo-Hound_Express")).toBeInTheDocument();
-    expect(screen.getByAltText("facebook")).toBeInTheDocument();
-    expect(screen.getByAltText("instagram")).toBeInTheDocument();
-    expect(screen.getByAltText("twitter")).toBeInTheDocument();
+    expect(screen.getByAltText("Logotipo Hound Express")).toBeInTheDocument();
+    expect(screen.getByAltText("Icono facebook")).toBeInTheDocument();
+    expect(screen.getByAltText("Icono instagram")).toBeInTheDocument();
+    expect(screen.getByAltText("Icono twitter")).toBeInTheDocument();
   });
 
   it("should render FooterPicture container", () => {
-    const imgRef = screen.getByAltText("imagotipo-Hound_Express");
+    const imgRef = screen.getByAltText("Logotipo Hound Express");
     expect(imgRef.parentNode?.parentNode).toHaveClass("footer__picture");
   });
 
@@ -56,7 +56,7 @@ describe("FooterAbout component", () => {
   });
 
   it("should navigate to the correct URL when clicking on the icons", () => {
-    const imgRef = screen.getByAltText("imagotipo-Hound_Express");
+    const imgRef = screen.getByAltText("Logotipo Hound Express");
     expect(imgRef.parentNode).toHaveAttribute("href", "index.html");
 
     //A inicio

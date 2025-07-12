@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import { flex, box, colorBg, secondaryColor } from "../../../theme/mixins";
-import { sizesMedia } from "../../../theme/variables";
+import { primaryColor, sizesMedia } from "../../../theme/variables";
 
-const FooterCopyContainer = styled.article`
+const FooterCopyContainer = styled.section`
   ${flex("row", "center", "space-evenly")};
   ${box("100%", "0 auto", "0.625rem")};
   text-align: center;
-  ${colorBg("#fff", secondaryColor)};
+  ${colorBg(primaryColor, secondaryColor)};
   line-height: normal;
   
   .footer__text--link {
     display: inline-block;
-    color: #fff;
+    color: ${primaryColor};
     text-decoration: none;
     padding: 0.625rem 0;
     text-align: center;

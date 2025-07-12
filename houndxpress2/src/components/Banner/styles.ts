@@ -6,7 +6,7 @@ interface CheckedProps {
   $position: "left" | "right";
 }
 
-const BannerContainer = styled.article`
+const BannerContainer = styled.section`
   width: 100%;
   margin-bottom: 2rem;
   box-sizing: border-box;
@@ -58,11 +58,12 @@ const CarouselNav = styled.section<CheckedProps>`
   margin-top: 0.625rem;
   height: max-content;
 
-  div {
+  button {
     cursor: pointer;
     padding: 0.3125rem;
     background-color: #8ab5c1;
     margin: 0 0.3125rem;
+    border: none;
     border-radius: 50%;
     z-index: 5;
     ${hover("#8e9cb3c0")};
@@ -71,13 +72,13 @@ const CarouselNav = styled.section<CheckedProps>`
   ${(props) =>
     props.$position === "left"
       ? `
-        label[for="slide1"] {
+        button:nth-of-type(1) {
           filter: grayscale(100%);
           ${cursorNotAllowed()};
         }
         `
       : `
-        label[for="slide2"] {
+       button:nth-of-type(2) {
           filter: grayscale(100%);
           ${cursorNotAllowed()};
         }

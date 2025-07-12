@@ -26,9 +26,13 @@ const ModalUpdate = () => {
 
   return (
     <ModalUpdateContainer
+      id="modalUpdate"
       className={`table__modal--Update ${
         isOpenModal === "Update" ? "" : " hiddeModal"
       }`}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="Actualizar estado del envío"
     >
       <i className="table__closeModal">
         <img src={XIcon} alt="close--modal" onClick={cleanGuideData} />

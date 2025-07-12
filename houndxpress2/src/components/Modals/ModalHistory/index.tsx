@@ -16,11 +16,13 @@ const ModalHistory = () => {
 
   return (
     <ModalHistoryContainer
+      id="modalHistory"
       className={`table__modal--history ${
         isOpenModal === "History" ? "" : " hiddeModal"
       }`}
       role="dialog"
       aria-modal="true"
+      aria-labelledby="Historial de envío"
     >
       <i className="tableHistory__closeModal">
         <img src={XIcon} alt="close--modal" onClick={cleanGuideData} />

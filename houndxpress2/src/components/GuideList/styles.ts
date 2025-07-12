@@ -12,7 +12,7 @@ import {
   cursorGrabbing,
 } from "../../theme/mixins";
 
-const GuideListContainer = styled.article`
+const GuideListContainer = styled.section`
   ${box("100%", "0 auto", "1.25rem")};
   ${colorBg(primaryColor, "transparent")};
   display: flex;
@@ -53,6 +53,7 @@ const GuideFilter = styled.form`
 
   label {
     font-size: clamp(0.8rem, 1rem, 1.2rem);
+    color: ${primaryColor};
   }
 
   select {

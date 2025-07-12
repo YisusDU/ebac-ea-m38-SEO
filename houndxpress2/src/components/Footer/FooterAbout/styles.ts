@@ -10,8 +10,7 @@ import {
   secondaryColor,
 } from "../../../theme/mixins";
 
-
-const FooterAboutContainer = styled.article`
+const FooterAboutContainer = styled.section`
   ${colorBg()};
   ${flex("row", "center", "center")};
   ${box("80%", "0 auto", "1.25rem")};
@@ -24,7 +23,7 @@ const FooterAboutContainer = styled.article`
   }
 `;
 
-const FooterSocialMedia = styled.section`
+const FooterSocialMedia = styled.article`
   ${flex("column", "center", "center")};
   ${box("100%", "0 auto", "1.25rem")};
   color: #fff;
@@ -103,6 +102,15 @@ const FooterNav = styled.nav`
 
     &:hover {
       color: ${secondaryColor};
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      list-style: none;
+      text-align: left;
     }
   }
 

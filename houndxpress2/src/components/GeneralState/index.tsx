@@ -73,7 +73,7 @@ const GeneralState = () => {
         </StateElement>
       </StateContainer>
       <StatePicture className="state__picture">
-        <img className="state__img" src={Gift} alt="hx__gift" />
+        <img className="state__img" src={Gift} alt="Almacenamiento, envío y rastreo por Hound Express" />
       </StatePicture>
     </GeneralStateContainer>
   );

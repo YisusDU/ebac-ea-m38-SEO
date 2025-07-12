@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   GuideListContainer,
   GuideFilter,
@@ -35,6 +35,23 @@ const GuideList = () => {
     return filter === "" || lastStatus === filter;
   });
 
+  //Function for accesibility of aria-expanded
+  const [ariaExpanded, setAriaExpanded] = useState(false);
+  const modalFilled1 = useAppSelector(
+    (state) => state.guides.modalData.guideNumber
+  );
+  const modalFilled2 = useAppSelector(
+    (state) => state.guides.modalData.typeModal
+  );
+
+  useEffect(() => {
+    if (modalFilled1 === "" && modalFilled2 === "") {
+      setAriaExpanded(false);
+    } else {
+      setAriaExpanded(true);
+    }
+  }, [modalFilled1, modalFilled2]);
+
   return (
     /* <!--Lista de guías--> */
     <GuideListContainer className="guide__list" id="guide__list">
@@ -46,18 +63,37 @@ const GuideList = () => {
           id="filterState"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
+          aria-controls="mainTable"
+          role="combobox"
+          aria-label="Filtrar por estado de envío:"
+          title="Filtrar por estado de envío:"
         >
-          <option value="">Mostrar todos</option>
-          <option value="Pendiente">Pendientes</option>
-          <option value="En tránsito">En tránsito</option>
-          <option value="Entregado">Entregados</option>
+          <option value="" role="option">
+            Mostrar todos
+          </option>
+          <option value="Pendiente" role="option">
+            Pendientes
+          </option>
+          <option value="En tránsito" role="option">
+            En tránsito
+          </option>
+          <option value="Entregado" role="option">
+            Entregados
+          </option>
         </select>
-        <button type="button" onClick={() => setFilter("")}>
+        <button
+          type="button"
+          onClick={() => setFilter("")}
+          role="button"
+          aria-label="Limpiar filtro"
+          title="Limpiar filtro"
+          aria-controls="mainTable"
+        >
           Limpiar filtro
         </button>
       </GuideFilter>
       <section ref={tableRef} className="list__tableContainer">
-        <GuideTable className="guide__table" cellPadding={5}>
+        <GuideTable id="mainTable" className="guide__table" cellPadding={5}>
           <TableHeader className="table__header">
             <tr className="table__header--row">
               <th className="guide__table--header">Número de guía</th>
@@ -96,6 +132,13 @@ const GuideList = () => {
                   <button
                     className="guide__button guideButton--seeHistory"
                     onClick={() => openModal(g.guide__number, "History")}
+                    type="button"
+                    role="button"
+                    aria-label={`Ver historial de la guía ${g.guide__number}`}
+                    title={`Ver historial de la guía ${g.guide__number}`}
+                    aria-haspopup="dialog"
+                    aria-controls="modalHistory"
+                    aria-expanded={ariaExpanded ? true : false}
                   >
                     Ver Historial
                   </button>
@@ -103,6 +146,12 @@ const GuideList = () => {
                     className="guide__button guide__button--updateState"
                     onClick={() => openModal(g.guide__number, "Update")}
                     type="button"
+                    role="button"
+                    aria-label={`Actualizar estado de la guía ${g.guide__number}`}
+                    title={`Actualizar estado de la guía ${g.guide__number}`}
+                    aria-haspopup="dialog"
+                    aria-controls="modalUpdate"
+                    aria-expanded={ariaExpanded ? true : false}
                   >
                     Actualizar Estado
                   </button>
