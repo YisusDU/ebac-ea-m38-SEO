@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { primaryColor, secondaryColor } from "./variables";
+import { primaryColor, secondaryColor, sizesMedia } from "./variables";
 
 //mixins
 const flex = (
@@ -116,9 +116,12 @@ const modalStyle = () => css`
     z-index: -1;
   }
 
-  i {
+  .table__closeModal,
+  .tableHistory__closeModal {
     ${flex("row", "center", "flex-start")};
-    ${box("100%", "0 auto", "0rem")};
+    ${box("fit-content", "0", "0rem")};
+    border: none;
+    align-self: flex-start;
 
     img {
       width: 1.4rem;
@@ -126,11 +129,11 @@ const modalStyle = () => css`
       ${active()};
       ${hover(primaryColor)};
       padding: 5px;
+      /* position: absolute; */
     }
   }
   h3 {
     font-size: clamp(1rem, 1.2rem, 1.5rem);
-    margin-bottom: 10px;
   }
 
   table {
@@ -145,6 +148,10 @@ const modalStyle = () => css`
 
     td {
       border: 2px solid #fff;
+      @media screen and (max-width: ${sizesMedia.xmd}) {
+        border: none;
+        border-bottom: 1px solid #fff;
+      }
     }
 
     th,

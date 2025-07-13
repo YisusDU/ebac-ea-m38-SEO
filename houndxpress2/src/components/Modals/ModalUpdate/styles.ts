@@ -8,7 +8,7 @@ const ModalUpdateContainer = styled.section`
   padding: 0; */
 
   &.hiddeModal {
-    scale: 0;
+    display: none;
   }
 `;
 

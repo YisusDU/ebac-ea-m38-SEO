@@ -1,4 +1,4 @@
-import React, { SetStateAction } from "react";
+import React, { SetStateAction, useEffect, useRef, useState } from "react";
 import { ModalUpdateContainer } from "./styles";
 import UpdateTable from "./UpdateTable";
 import UpdateForm from "./UpdateForm";
@@ -17,12 +17,28 @@ export interface ModalUpdateProp {
 }
 
 const ModalUpdate = () => {
+  
   //Redux state typeModal
   const isOpenModal = useAppSelector(
     (state) => state.guides.modalData.typeModal
   );
+const { cleanGuideData } = useModalGuides();
 
-  const { cleanGuideData } = useModalGuides();
+  //Make a focus trap for the inputs container
+  const inputsContainer = useRef<HTMLUListElement>(null);
+  const [focusableEls, setFocusableEls] = useState<HTMLElement[]>([]);
+
+  useEffect(() => {
+    if (!isOpenModal) return;
+    const container = inputsContainer.current;
+    if (!container) return;
+    const selectors = "input, button:not([disabled])";
+    const elements = Array.from(
+      container.querySelectorAll<HTMLElement>(selectors)
+    );
+    setFocusableEls(elements);
+    if (elements.length) elements[0].focus();
+  }, [isOpenModal]);
 
   return (
     <ModalUpdateContainer
@@ -33,13 +49,20 @@ const ModalUpdate = () => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="Actualizar estado del envío"
+      ref={inputsContainer}
     >
-      <i className="table__closeModal">
-        <img src={XIcon} alt="close--modal" onClick={cleanGuideData} />
-      </i>
+      <button
+        className="table__closeModal"
+        type="button"
+        onClick={cleanGuideData}
+        aria-label="Cerrar modal"
+        title="Cerrar modal"
+      >
+        <img src={XIcon} alt="close--modal" />
+      </button>
       <h3 className="tableModal__title">Actualizar estado del envío</h3>
       <UpdateTable />
-      <UpdateForm />
+      <UpdateForm focusableEls={focusableEls} />
     </ModalUpdateContainer>
   );
 };

@@ -32,7 +32,7 @@ const HeaderContainer = styled.header`
     position: fixed;
     background-color: #fff;
     padding: 1rem 0;
-    width: 100dvw;
+    width: 100%;
     align-items: center;
     box-shadow: 18px 8px 8px 7px rgb(0 0 0 / 20%);
 

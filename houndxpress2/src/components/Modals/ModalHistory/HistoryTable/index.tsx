@@ -30,11 +30,11 @@ const HistoryTable = () => {
         <tbody className="tableHistory__currentGuide--body">
           {currentGuide ? (
             <tr>
-              <td>{currentGuide.guide__number}</td>
-              <td>{stages[stages.length - 1]?.guide__status}</td>
-              <td>{currentGuide.guide__origin}</td>
-              <td>{currentGuide.guide__destination}</td>
-              <td>{currentGuide.guide__recipient}</td>
+              <td data-label="Número de guía">{currentGuide.guide__number}</td>
+              <td data-label="Estado">{stages[stages.length - 1]?.guide__status}</td>
+              <td data-label="Origen">{currentGuide.guide__origin}</td>
+              <td data-label="Destino">{currentGuide.guide__destination}</td>
+              <td data-label="Destinatario">{currentGuide.guide__recipient}</td>
             </tr>
           ) : (
             <tr>

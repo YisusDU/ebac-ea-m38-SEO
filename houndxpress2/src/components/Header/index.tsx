@@ -2,7 +2,6 @@ import React, {
   useState,
   forwardRef,
   useEffect,
-  KeyboardEvent,
   useRef,
 } from "react";
 import logoHeader from "../../assets/IMG/M6-imagotipo-Hound_Express/logo-Hound_Express-bg-white.png";

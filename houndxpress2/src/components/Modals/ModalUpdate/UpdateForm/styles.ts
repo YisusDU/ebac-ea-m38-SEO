@@ -17,7 +17,7 @@ const ModalInpuSelect = () => css`
   width: 95%;
   border: none;
   border-bottom: 0.125rem solid #fff;
-  margin: 0.625rem auto;
+  margin: 0.25rem auto;
   ${colorBg("#fff", secondaryColor)}
   cursor: text;
   font-size: clamp(0.9rem, 1.2rem, 1.4rem);
@@ -54,14 +54,13 @@ const ModalUpdateContainer = styled.section`
 
 const ModalForm = styled.form`
   ${flex("column", "stretch", "center")};
-  ${box("60%", "1rem auto", "1rem")};
+  ${box("80%", "0.25rem auto", "1rem")};
   ${colorBg("#fff", "transparent")};
   border: 2px solid ${primaryColor};
-  gap: 0.3rem;
 
-  .table__form--label:nth-of-type(1) {
+  /* .table__form--label:nth-of-type(1) {
     display: none;
-  }
+  } */
 
   .tableModal__input--error {
     border-color: #ff0000;

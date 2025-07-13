@@ -5,12 +5,8 @@ const ModalHistoryContainer = styled.section`
   ${modalStyle()};
 
   &.hiddeModal {
-    scale: 0;
+    display: none;
   }
 `;
 
-
-
-export {
-  ModalHistoryContainer,
-};
+export { ModalHistoryContainer };

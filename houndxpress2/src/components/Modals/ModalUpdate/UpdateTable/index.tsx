@@ -39,25 +39,25 @@ const UpdateTable = () => {
         <tbody className="table__currentGuide--body">
           {currentGuide ? (
             <tr>
-              <td>{currentGuide.guide__number}</td>
-              <td>
+              <td data-label="Número de guía">{currentGuide.guide__number}</td>
+              <td data-label="Estado">
                 {
                   currentGuide.guide__stage[
                     currentGuide.guide__stage.length - 1
                   ]?.guide__status
                 }
               </td>
-              <td>{currentGuide.guide__origin}</td>
-              <td>{currentGuide.guide__destination}</td>
-              <td>{currentGuide.guide__recipient}</td>
-              <td>
+              <td data-label="Origen">{currentGuide.guide__origin}</td>
+              <td data-label="Destino">{currentGuide.guide__destination}</td>
+              <td data-label="Destinatario">{currentGuide.guide__recipient}</td>
+              <td data-label="Fecha">
                 {
                   currentGuide.guide__stage[
                     currentGuide.guide__stage.length - 1
                   ]?.guide__date
                 }
               </td>
-              <td>
+              <td data-label="Hora">
                 {
                   currentGuide.guide__stage[
                     currentGuide.guide__stage.length - 1

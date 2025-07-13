@@ -13,7 +13,7 @@ import {
 } from "../../theme/mixins";
 
 const GuideListContainer = styled.section`
-  ${box("100%", "0 auto", "1.25rem")};
+  ${box("100%", "0 auto", ".25rem")};
   ${colorBg(primaryColor, "transparent")};
   display: flex;
   flex-direction: column;
@@ -30,13 +30,13 @@ const GuideListContainer = styled.section`
 
   //Responsive styles
 
-  @media screen and (max-width: ${sizesMedia.xmd}) {
+  /* @media screen and (max-width: ${sizesMedia.xmd}) {
     .list__tableContainer {
       overflow-x: scroll;
       ${cursorGrab()};
       ${cursorGrabbing()};
     }
-  }
+  } */
 
   @media screen and (prefers-color-scheme: dark) {
     color: #fff;
@@ -72,6 +72,59 @@ const GuideTable = styled.table`
   width: 100%;
   border-spacing: 2px;
   border-collapse: separate;
+
+  @media screen and (max-width: ${sizesMedia.xmd}) {
+    thead {
+      display: none;
+    }
+
+    tbody,
+    tr,
+    td {
+      display: block;
+      width: 100%;
+      line-height: normal;
+    }
+
+    tr {
+      margin-bottom: 1.5rem;
+      border: 1px solid ${secondaryColor};
+      padding: 0.5rem;
+    }
+
+    td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+      font-size: 1rem;
+      border: none;
+      border-bottom: 1px solid ${secondaryColor};
+    }
+
+    td:last-child {
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      border: none;
+      button {
+        margin: 5px;
+      }
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0.5rem;
+      width: 45%;
+      padding-right: 1rem;
+      font-weight: bold;
+      text-align: left;
+      white-space: nowrap;
+      color: #fff;
+    }
+  }
 `;
 
 const TableHeader = styled.thead`

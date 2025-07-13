@@ -2,6 +2,7 @@
   "name": "houndxpress1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yisusdu.github.io/ebac-ea-m38-SEO/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@testing-library/dom": "^10.4.0",
@@ -22,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --watchAll=false",
     "testAuto": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
@@ -46,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0"
+    "@types/jest": "^30.0.0",
+    "gh-pages": "^6.3.0"
   }
 }

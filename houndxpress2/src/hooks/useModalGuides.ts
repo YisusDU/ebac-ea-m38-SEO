@@ -2,14 +2,25 @@ import { changeModalData } from "../state/guides.slice";
 import { useAppDispatch } from "./useStoreTypes";
 
 const useModalGuides = () => {
-  //Redux state
   const dispatch = useAppDispatch();
 
-  //Clean Redux state modalData
   const cleanGuideData = () => {
-    //Redux dispatch
     dispatch(changeModalData({ guideNumber: "", typeModal: "" }));
+
+    // Devolver foco al primer elemento interactivo visible (que no esté oculto)
+    const focusable = Array.from(
+      document.querySelectorAll<HTMLElement>('select[name="filterState"]')
+    );
+
+    const firstVisibleFocusable = focusable.find(
+      (el) =>
+        el.offsetParent !== null && // visible en layout
+        getComputedStyle(el).visibility !== "hidden"
+    );
+
+    firstVisibleFocusable?.focus();
   };
+
   return { cleanGuideData };
 };
 

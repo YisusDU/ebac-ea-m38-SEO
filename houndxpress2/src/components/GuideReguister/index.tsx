@@ -183,7 +183,6 @@ const GuideRegister = () => {
             className="guide__form--select guide__form--input"
             id="guide__status"
             name="guide__status"
-            role="combobox"
             aria-label="Selecciona el estado inicial del envío"
             title="Selecciona el estado inicial del envío"
             onFocus={cleanErrorOnFocus}
@@ -193,27 +192,27 @@ const GuideRegister = () => {
               errors.guide__status ? errors.guide__status : undefined
             }
           >
-            <option className="guide__form--option " value="" role="option">
+            <option className="guide__form--option " value="">
               Estado inicial:
             </option>
             <option
               className="guide__form--option"
               value="Pendiente"
-              role="option"
+            
             >
               Pendiente 📦
             </option>
             <option
               className="guide__form--option"
               value="En tránsito"
-              role="option"
+            
             >
               En tránsito 🚚
             </option>
             <option
               className="guide__form--option"
               value="Entregado"
-              role="option"
+            
             >
               Entregado ✅
             </option>

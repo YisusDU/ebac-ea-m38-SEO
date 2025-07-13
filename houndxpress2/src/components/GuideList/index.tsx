@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   GuideListContainer,
   GuideFilter,
@@ -10,6 +10,7 @@ import {
 import useDraggTable from "../../hooks/useDraggTable";
 import { useAppSelector, useAppDispatch } from "../../hooks/useStoreTypes";
 import { changeModalData } from "../../state/guides.slice";
+import { useModalGuides } from "../../hooks/useModalGuides";
 
 const GuideList = () => {
   //Variables to aply some filter
@@ -21,12 +22,13 @@ const GuideList = () => {
   //Redux state
   const guides = useAppSelector((state) => state.guides.guides);
   const dispatch = useAppDispatch();
-
+  const updateButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   type ModalType = "History" | "Update";
 
   const openModal = (guide: string, type: ModalType) => {
-    //Redux dispatch
     dispatch(changeModalData({ guideNumber: guide, typeModal: type }));
+
+    // Guardar el botón activo para usarlo luego
   };
 
   //Aply some filter
@@ -64,20 +66,19 @@ const GuideList = () => {
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           aria-controls="mainTable"
-          role="combobox"
           aria-label="Filtrar por estado de envío:"
           title="Filtrar por estado de envío:"
         >
-          <option value="" role="option">
+          <option value="">
             Mostrar todos
           </option>
-          <option value="Pendiente" role="option">
+          <option value="Pendiente">
             Pendientes
           </option>
-          <option value="En tránsito" role="option">
+          <option value="En tránsito">
             En tránsito
           </option>
-          <option value="Entregado" role="option">
+          <option value="Entregado">
             Entregados
           </option>
         </select>
@@ -108,28 +109,49 @@ const GuideList = () => {
             </tr>
           </TableHeader>
           <tbody data-testid="table-body" className="table__body">
-            {filteredGuides.map((g) => (
+            {filteredGuides.map((g, index) => (
               <tr className="guide__table--row" key={g.guide__number}>
-                <TableData className="guide__table--data">
+                <TableData
+                  className="guide__table--data"
+                  data-label="Número de guía"
+                >
                   {g.guide__number}
                 </TableData>
-                <TableData className="guide__table--data">
+
+                <TableData
+                  className="guide__table--data"
+                  data-label="Estado actual"
+                >
                   {g.guide__stage[g.guide__stage.length - 1].guide__status}
                 </TableData>
-                <TableData className="guide__table--data">
+
+                <TableData className="guide__table--data" data-label="Origen">
                   {g.guide__origin}
                 </TableData>
-                <TableData className="guide__table--data">
+
+                <TableData className="guide__table--data" data-label="Destino">
                   {g.guide__destination}
                 </TableData>
-                <TableData className="guide__table--data">
+
+                <TableData
+                  className="guide__table--data"
+                  data-label="Destinatario"
+                >
                   {g.guide__recipient}
                 </TableData>
-                <TableData className="guide__table--data">
+
+                <TableData className="guide__table--data" data-label="Fecha">
                   {g.guide__stage[g.guide__stage.length - 1].guide__date}
                 </TableData>
-                <TableButtonsContainer className="guide__table--data list__buttonsContainer">
+
+                <TableButtonsContainer
+                  className="guide__table--data list__buttonsContainer"
+                  data-label="Opciones"
+                >
                   <button
+                    ref={(el) => {
+                      updateButtonRefs.current[index] = el;
+                    }}
                     className="guide__button guideButton--seeHistory"
                     onClick={() => openModal(g.guide__number, "History")}
                     type="button"
@@ -143,6 +165,9 @@ const GuideList = () => {
                     Ver Historial
                   </button>
                   <button
+                    ref={(el) => {
+                      updateButtonRefs.current[index] = el;
+                    }}
                     className="guide__button guide__button--updateState"
                     onClick={() => openModal(g.guide__number, "Update")}
                     type="button"

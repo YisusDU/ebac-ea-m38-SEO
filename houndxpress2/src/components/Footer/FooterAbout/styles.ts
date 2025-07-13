@@ -48,6 +48,7 @@ const FooterPicture = styled.picture`
 const FooterSocialIcons = styled.figcaption`
   ${flex("row", "center", "space-evenly")};
   width: 100%;
+  padding: 3px;
 
   img {
     ${flex("row", "center", "center")};
@@ -107,7 +108,7 @@ const FooterNav = styled.nav`
   ul {
     margin: 0;
     padding: 0;
-    
+
     li {
       list-style: none;
       text-align: left;
