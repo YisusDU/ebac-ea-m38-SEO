@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/static/js/main.90246b47.js",
-    "static/media/Animacion-beneficios-sistema-v2.gif": "/static/media/Animacion-beneficios-sistema-v2.4cfed981b0ba6cd1f0e8.gif",
-    "static/media/bannerUS__HX.png": "/static/media/bannerUS__HX.51d8943a999392154fa8.png",
-    "static/media/bannerCanva-HX.png": "/static/media/bannerCanva-HX.8960f45642a3d0d32a6a.png",
-    "static/media/logoAzulBlancoHE.png": "/static/media/logoAzulBlancoHE.dfd0131e9b9d6e929bf2.png",
-    "static/media/logo-Hound_Express-bg-white.png": "/static/media/logo-Hound_Express-bg-white.3ed9e37efea17fdd8ba5.png",
-    "index.html": "/index.html",
-    "static/media/instagram-brands.svg": "/static/media/instagram-brands.4d8a38f58905dd8d798d1f4cb7345f0a.svg",
-    "static/media/paw-solid.svg": "/static/media/paw-solid.89c15e618204231793ef9480f1826923.svg",
-    "static/media/twitter-brands.svg": "/static/media/twitter-brands.41d824740f05c76ecfb43f6b6a68ba2e.svg",
-    "static/media/x-solid.svg": "/static/media/x-solid.54d989207062f09204a6c15b95971c50.svg",
-    "static/media/bars-solid.svg": "/static/media/bars-solid.fdc10d4a9bd26f9f7b830a0fceadc11b.svg",
-    "static/media/square-facebook-brands.svg": "/static/media/square-facebook-brands.afd0161519394995b690f09ddb2ad7b3.svg",
-    "main.90246b47.js.map": "/static/js/main.90246b47.js.map"
+    "main.js": "/ebac-ea-m38-SEO/static/js/main.9c814bb5.js",
+    "static/media/Animacion-beneficios-sistema-v2.gif": "/ebac-ea-m38-SEO/static/media/Animacion-beneficios-sistema-v2.4cfed981b0ba6cd1f0e8.gif",
+    "static/media/bannerUS__HX.png": "/ebac-ea-m38-SEO/static/media/bannerUS__HX.51d8943a999392154fa8.png",
+    "static/media/bannerCanva-HX.png": "/ebac-ea-m38-SEO/static/media/bannerCanva-HX.8960f45642a3d0d32a6a.png",
+    "static/media/logoAzulBlancoHE.png": "/ebac-ea-m38-SEO/static/media/logoAzulBlancoHE.dfd0131e9b9d6e929bf2.png",
+    "static/media/logo-Hound_Express-bg-white.png": "/ebac-ea-m38-SEO/static/media/logo-Hound_Express-bg-white.3ed9e37efea17fdd8ba5.png",
+    "index.html": "/ebac-ea-m38-SEO/index.html",
+    "static/media/instagram-brands.svg": "/ebac-ea-m38-SEO/static/media/instagram-brands.4d8a38f58905dd8d798d1f4cb7345f0a.svg",
+    "static/media/paw-solid.svg": "/ebac-ea-m38-SEO/static/media/paw-solid.89c15e618204231793ef9480f1826923.svg",
+    "static/media/twitter-brands.svg": "/ebac-ea-m38-SEO/static/media/twitter-brands.41d824740f05c76ecfb43f6b6a68ba2e.svg",
+    "static/media/x-solid.svg": "/ebac-ea-m38-SEO/static/media/x-solid.54d989207062f09204a6c15b95971c50.svg",
+    "static/media/bars-solid.svg": "/ebac-ea-m38-SEO/static/media/bars-solid.fdc10d4a9bd26f9f7b830a0fceadc11b.svg",
+    "static/media/square-facebook-brands.svg": "/ebac-ea-m38-SEO/static/media/square-facebook-brands.afd0161519394995b690f09ddb2ad7b3.svg",
+    "main.9c814bb5.js.map": "/ebac-ea-m38-SEO/static/js/main.9c814bb5.js.map"
   },
   "entrypoints": [
-    "static/js/main.90246b47.js"
+    "static/js/main.9c814bb5.js"
   ]
 }
