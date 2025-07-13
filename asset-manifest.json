@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/ebac-ea-m38-SEO/static/js/main.9c814bb5.js",
+    "main.js": "/ebac-ea-m38-SEO/static/js/main.98c6e5a8.js",
     "static/media/Animacion-beneficios-sistema-v2.gif": "/ebac-ea-m38-SEO/static/media/Animacion-beneficios-sistema-v2.4cfed981b0ba6cd1f0e8.gif",
     "static/media/bannerUS__HX.png": "/ebac-ea-m38-SEO/static/media/bannerUS__HX.51d8943a999392154fa8.png",
     "static/media/bannerCanva-HX.png": "/ebac-ea-m38-SEO/static/media/bannerCanva-HX.8960f45642a3d0d32a6a.png",
@@ -13,9 +13,9 @@
     "static/media/x-solid.svg": "/ebac-ea-m38-SEO/static/media/x-solid.54d989207062f09204a6c15b95971c50.svg",
     "static/media/bars-solid.svg": "/ebac-ea-m38-SEO/static/media/bars-solid.fdc10d4a9bd26f9f7b830a0fceadc11b.svg",
     "static/media/square-facebook-brands.svg": "/ebac-ea-m38-SEO/static/media/square-facebook-brands.afd0161519394995b690f09ddb2ad7b3.svg",
-    "main.9c814bb5.js.map": "/ebac-ea-m38-SEO/static/js/main.9c814bb5.js.map"
+    "main.98c6e5a8.js.map": "/ebac-ea-m38-SEO/static/js/main.98c6e5a8.js.map"
   },
   "entrypoints": [
-    "static/js/main.9c814bb5.js"
+    "static/js/main.98c6e5a8.js"
   ]
 }
